@@ -1,7 +1,9 @@
 package config
 
 import (
+	"eda-in-go/internal/rpc"
 	"os"
+	"time"
 
 	"github.com/kelseyhightower/envconfig"
 	"github.com/stackus/dotenv"
@@ -12,10 +14,11 @@ type (
 		Conn string `required:"true"`
 	}
 	AppConfig struct {
-		Environment string
-		LogLevel    string `envconfig:"LOG_LEVEL" default:"DEBUG"`
-		PG          PGConfig
-		Rpc rpc.
+		Environment     string
+		LogLevel        string `envconfig:"LOG_LEVEL" default:"DEBUG"`
+		PG              PGConfig
+		Rpc             rpc.RpcConfig
+		ShutdownTimeout time.Duration `envconfig:"SHUTDOWN_TIMEOUT" default:"30s"`
 	}
 )
 
