@@ -2,6 +2,7 @@ package config
 
 import (
 	"eda-in-go/internal/rpc"
+	"eda-in-go/internal/web"
 	"os"
 	"time"
 
@@ -18,6 +19,7 @@ type (
 		LogLevel        string `envconfig:"LOG_LEVEL" default:"DEBUG"`
 		PG              PGConfig
 		Rpc             rpc.RpcConfig
+		Web             web.WebConfig
 		ShutdownTimeout time.Duration `envconfig:"SHUTDOWN_TIMEOUT" default:"30s"`
 	}
 )
